@@ -1,0 +1,40 @@
+
+.background-wall{
+    background-image: url("images/deathstar.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100dvh;
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    
+}
+
+.renderButtton{
+    background-color: seagreen;
+    color: white;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    font-weight: 600;
+}
+
+.card-img{
+    height: 300px;
+}
+.card-build{
+    border: 2px solid black !important;
+    margin: 10px;
+    padding: 10px;
+    width: 19rem !important;
+    background-color: rgb(69, 96, 119,0.3) !important;
+}
+.row{
+    justify-content: center;
+    align-items: center;
+}
+
+audio{
+    display: none;
+}
