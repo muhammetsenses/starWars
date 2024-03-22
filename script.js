@@ -191,14 +191,46 @@ for (let i = 0; i < homeworlds.length; i++){
 }
 
 
+homeworldfilterRadio.addEventListener("change", function(event){
+  const selectedHomeworld = event.target.value;
 
-// radioInput.addEventListener("change", function(event){
+  const selectedHomeworldCharacters = characters.filter((character) => {
+    const homeworld = character.homeworld ? character.homeworld.toLowerCase() : "other"
+    return homeworld === selectedHomeworld
+  })
+  row.innerHTML ="";
+
+  row.innerHTML = selectedHomeworldCharacters.map((character) => {
+    return (
+      `<div class="card col-lg-3 col-md-4 card-build mb-2 text-center" >
+      <img src="${character.pic}" class="card-img-top card-img " >
+      <div class="card-body">
+      <h5 class="card-title text-center text-white">${character.name}</h5>
+      </div>
+      <ul class="list-group list-group-flush">
+      <li class="list-group-item">id : ${character.id}</li>
+      <li class="list-group-item">${character.homeworld || "other"}</li>
+      </ul>
+  </div>
+      `
+    )
+  }).join("")
+  renderBtn.textContent = "Hide Characters";
+  renderBtn.style.backgroundColor = "red"
+  audio.play();
+
+})
+
+
+
+
+// homeworldfilterRadio.addEventListener("change", function(event){
 //   const selectedHomeworld = event.target.value;
-
+  
 //   row.innerHTML ="";
   
 //   characters.filter(function(character){
-//     if(character.homeworld ===   selectedHomeworld){
+//     if(selectedHomeworld === character.homeworld){
 //       row.innerHTML +=`
 //             <div class="card col-lg-3 col-md-4 card-build mb-2 text-center" >
 //             <img src="${character.pic}" class="card-img-top card-img " >
@@ -207,7 +239,7 @@ for (let i = 0; i < homeworlds.length; i++){
 //             </div>
 //             <ul class="list-group list-group-flush">
 //             <li class="list-group-item">id : ${character.id}</li>
-//             <li class="list-group-item">${character.homeworld}</li>
+//             <li class="list-group-item">${character.homeworld || "other"}</li>
 //             </ul>
 //         </div>
 //             `
